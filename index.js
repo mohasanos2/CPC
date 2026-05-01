@@ -181,7 +181,7 @@ client.on('interactionCreate', async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
 
   const { commandName, options, guild, member, user: executer } = interaction;
-  const isAdmin = member.permissions.has(PermissionsBitField.Flags.ManageGuild);
+  const isAdmin = member.permissions.has(PermissionsBitField.Flags.ManageMessages) || member.permissions.has(PermissionsBitField.Flags.ManageGuild);
 
   // 1. أمر الإضافة والخصم
   if (commandName === 'add' || commandName === 'dis') {
